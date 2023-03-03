@@ -66,7 +66,7 @@ const UserProvider = ({children}) => {
           function handleUpdate(e, userUpdateData) {
             e.preventDefault();
             // setIsLoading(true);
-            fetch("/update", {
+            fetch("/update-profile", {
               method: "PATCH",
               headers: {
                 "Content-Type": "application/json",

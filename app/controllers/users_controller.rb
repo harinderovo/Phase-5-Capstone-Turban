@@ -21,14 +21,12 @@ class UsersController < ApplicationController
     end
 
     def update
-        find_user
-        @user.update!(location: params[:location])
+        @user.update!(user_params)
         render json: @user, status: :accepted
       end
 
     def destroy
-        user = User.find(params[:id])
-        user.destroy
+        @user.destroy
         head :no_content
     end
 
@@ -39,6 +37,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:name, :email, :phonenumber, :password, :password_confirmation, :booking)
+        params.permit(:name, :email, :phonenumber, :password, :password_confirmation)
     end
 end

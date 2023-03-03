@@ -37,9 +37,6 @@ const App = () =>  {
           <BookingsForm bookings={bookings} setBookings={setBookings} API={API} setUser={setUser} />
           </Route>
 
-          <Route exact path="/">
-            <HomePage />
-          </Route>
 
           <Route exact path="/bookings">
             {bookingsList}
@@ -61,7 +58,11 @@ const App = () =>  {
             <UserUpdate />
           </Route>
 
-          <Route path="/*">
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+
+          <Route exact path="/*">
             <ErrorPage />
           </Route> </>
         ) : (
@@ -78,7 +79,7 @@ const App = () =>  {
             <Gallery />
           </Route>
 
-          <Route path="/*">
+          <Route exact path="/*">
             <ErrorPage />
           </Route> </>
         )}

@@ -11,12 +11,6 @@ class SessionsController < ApplicationController
         end
     end
 
-    def update
-        find_user
-        @user.update!(location: params[:location])
-        render json: @user, status: :accepted
-    end
-
     def destroy
         session.delete :user_id
         head :no_content

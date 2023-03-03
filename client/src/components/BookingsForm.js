@@ -36,8 +36,8 @@ function BookingsForm() {
         })
         .then(response => {
             if (response.status === 201) {
-                response.json().then (new_booking => {
-                    setUser(currentUser => ({...currentUser, bookings: [...currentUser.bookings, new_booking]}))
+                response.json().then (newBooking => {
+                    setUser(currentUser => ({...currentUser, bookings: [...currentUser.bookings, newBooking]}))
                 }) .then(() => history.push("/"))
             } else {
                 response.json().then((err) => setErrors(err.errors));
