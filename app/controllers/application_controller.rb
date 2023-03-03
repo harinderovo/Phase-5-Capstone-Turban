@@ -5,22 +5,27 @@ class ApplicationController < ActionController::API
   before_action :authorize
 
   def current_user
-    @user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-end
-
-def authorize
-   render json: {errors: "unauthorized"}, status: :unauthorized unless current_user
-end
-
+      @user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+  
+  def authorize
+    render json: {errors: "unauthorized"}, status: :unauthorized unless current_user
+  end
+  
   private 
 
-def not_found(error)
-  render json: { error: "#{error.model} not found"}, status: :not_found
-end
+  # def logged_in_user
+  #   User.find(session[:user_id])
+  # end
 
-def not_valid(invalid)
-  render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
-end
+  
+  def not_found(error)
+    render json: { error: "#{error.model} not found"}, status: :not_found
+  end
+
+  def not_valid(invalid)
+    render json: { errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+  end
 
 
 

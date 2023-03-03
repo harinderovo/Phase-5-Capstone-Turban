@@ -38,13 +38,13 @@ u = User.all.sample
 e = Event.all.sample
 Booking.create(
     [
-        { location: "Los Angeles", datetime: "01/01/23", user: u, event: e, price: rand(2..10) * 50 },
-        { location: "San Diego", datetime: "02/15/23", user: u, event: e, price: rand(2..10) * 50 },
-        { location: "Irvine", datetime: "03/05/23", user: u, event: e, price: rand(2..10) * 50 },
-        { location: "Santa Barbara", datetime: "04/12/23", user: u, event: e, price: rand(2..10) * 50 },
-        { location: "Dana Point", datetime: "06/24/23", user: u, event: e, price: rand(2..10) * 50 },
-        { location: "Cancun", datetime: "07/20/23", user: u, event: e, price: rand(2..10) * 50 },
-        { location: "Cabo San Lucas", datetime: "08/12/23", user: u, event: e, price: rand(2..10) * 50 },
+        { location: "Los Angeles", datetime: "01/01/23", user: User.all.sample, event: e, price: rand(2..10) * 50 },
+        { location: "San Diego", datetime: "02/15/23", user: User.all.sample, event: e, price: rand(2..10) * 50 },
+        { location: "Irvine", datetime: "03/05/23", user: User.all.sample, event: e, price: rand(2..10) * 50 },
+        { location: "Santa Barbara", datetime: "04/12/23", user: User.all.sample, event: e, price: rand(2..10) * 50 },
+        { location: "Dana Point", datetime: "06/24/23", user: User.all.sample, event: e, price: rand(2..10) * 50 },
+        { location: "Cancun", datetime: "07/20/23", user: User.all.sample, event: e, price: rand(2..10) * 50 },
+        { location: "Cabo San Lucas", datetime: "08/12/23", user: User.all.sample, event: e, price: rand(2..10) * 50 },
     ],
 )
 puts '🍪 Seeding products...'
