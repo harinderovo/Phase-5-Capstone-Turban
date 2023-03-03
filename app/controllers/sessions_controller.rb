@@ -11,6 +11,12 @@ class SessionsController < ApplicationController
         end
     end
 
+    def update
+        find_user
+        @user.update!(location: params[:location])
+        render json: @user, status: :accepted
+    end
+
     def destroy
         session.delete :user_id
         head :no_content
@@ -20,4 +26,10 @@ class SessionsController < ApplicationController
     #     session.clear
     #     head :no_content
     # end
+
+    private 
+
+    def find_user
+        user= User.find(params[:id])
+    end
 end

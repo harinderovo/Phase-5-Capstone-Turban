@@ -63,6 +63,27 @@ const UserProvider = ({children}) => {
             });
           }
 
+          function handleUpdate(e, userUpdateData) {
+            e.preventDefault();
+            // setIsLoading(true);
+            fetch("/update", {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(userUpdateData),
+            }).then((r) => {
+            //   setIsLoading(false);
+              if (r.status === 202) {
+                alert("Account update is successful")
+                r.json().then(userUpdate => setUser(userUpdate))
+                .then(() => history.push("/"))
+              } else {
+                r.json().then((err) => setErrors(err.errors));
+              }
+            });
+          }
+
           function handleLogout () {
                 fetch("/logout", {
                   method: "DELETE",
@@ -79,7 +100,7 @@ const UserProvider = ({children}) => {
                 }
 
   return (
-    <UserContext.Provider value={{user, setUser, handleLogin, handleLogout, handleSignup}}>
+    <UserContext.Provider value={{user, setUser, handleLogin, handleLogout, handleSignup, handleUpdate}}>
         {children} 
     </UserContext.Provider>
   )

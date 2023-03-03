@@ -14,7 +14,7 @@ const Account = () => {
 //   }
   return (
     <div>
-        <HomePage user={user} setUser={setUser}/>
+        {/* <HomePage user={user} setUser={setUser}/> */}
     </div>
   )
 }

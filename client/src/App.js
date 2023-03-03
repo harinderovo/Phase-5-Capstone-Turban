@@ -10,6 +10,10 @@ import BookingsForm from './components/BookingsForm';
 import ErrorPage from './components/ErrorPage';
 import Users from './components/Users';
 import Signup from "./components/Signup"
+import Gallery from './components/Gallery';
+import About from './components/About';
+import HomePage from './components/HomePage';
+import UserUpdate from './components/UserUpdate';
 import { UserContext } from './context/UserContext';
 
 const App = () =>  {
@@ -34,6 +38,10 @@ const App = () =>  {
           </Route>
 
           <Route exact path="/">
+            <HomePage />
+          </Route>
+
+          <Route exact path="/bookings">
             {bookingsList}
           </Route>
 
@@ -41,8 +49,16 @@ const App = () =>  {
             <Users />
           </Route>
 
-          <Route exact path="/account">
-            <Account />
+          <Route exact path="/about">
+            <About />
+          </Route>
+
+          <Route exact path="/gallery">
+            <Gallery />
+          </Route>
+
+          <Route exact path="/update">
+            <UserUpdate />
           </Route>
 
           <Route path="/*">
@@ -52,6 +68,14 @@ const App = () =>  {
           <>
           <Route exact path="/login">
           {(toggleAuth && <Login setToggleAuth={setToggleAuth}/>) || (<Signup setToggleAuth={setToggleAuth}/>)}
+          </Route>
+
+          <Route exact path="/about">
+            <About />
+          </Route>
+
+          <Route exact path="/gallery">
+            <Gallery />
           </Route>
 
           <Route path="/*">
