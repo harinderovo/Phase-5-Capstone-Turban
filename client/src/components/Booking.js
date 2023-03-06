@@ -60,9 +60,9 @@ function Booking({API, booking, setBookings, name, phone_number, email, password
 
             {/* <h4>{booking}</h4> */}
             <img src={image} alt="Turban image" /> <br />
-            <span className='card-detail'>Name: {user.name} </span> <br />
+            {/* <span className='card-detail'>Name: {user.name} </span> <br />
             <span className='card-detail'>PhoneNumber: {user.phone_number} </span> <br />
-            <span className='card-detail'>Email: {booking.email} </span> <br />
+            <span className='card-detail'>Email: {booking.email} </span> <br /> */}
             <span className='card-detail'>Event Information: {booking.event_id} </span> <br />
             <span className='card-detail'>Date/Time: {booking.datetime} </span> <br />
                 <form onSubmit={handleSubmit} >

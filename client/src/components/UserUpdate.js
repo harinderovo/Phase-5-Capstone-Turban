@@ -12,7 +12,7 @@ import { UserContext } from '../context/UserContext';
 
 function UserUpdate({setToggleAuth}) {
 
-    const {handleUpdate, user} = useContext(UserContext)
+    const {handleDeleteUser, handleUpdate, user} = useContext(UserContext)
     const history = useHistory()
     const [userUpdateData, setUserUpdateData] = useState({
         name: "",
@@ -92,7 +92,7 @@ function UserUpdate({setToggleAuth}) {
                 </FormControl>
     
                 <Button type="submit" sx={{ mt: 1 /* margin top */ }}>Update Account </Button>
-                <Button type="submit" sx={{ mt: 1 /* margin top */ }}>Delete Account</Button>
+                <Button type="submit" sx={{ mt: 1 /* margin top */ }} onClick={handleDeleteUser}>Delete Account</Button>
                 </form>
               {/* <Typography
                 endDecorator={<Link onClick={() => setToggleAuth(currentVal => !currentVal)}>Sign up</Link>}
@@ -106,5 +106,7 @@ function UserUpdate({setToggleAuth}) {
         </CssVarsProvider>
       )
 }
+
+
 
 export default UserUpdate

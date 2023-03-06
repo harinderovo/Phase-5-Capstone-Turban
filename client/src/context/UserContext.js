@@ -105,6 +105,23 @@ const UserProvider = ({children}) => {
             });
           }
 
+          function handleDeleteUser () {
+            fetch("/logout", {
+              method: "DELETE",
+            })
+              .then((r) => {
+                if (r.status === 204) {
+                  setUser(null)
+                  alert("You have Successfully been deleted")
+                  r.json().then(userUpdate => setUser(userUpdate))
+                .then(() => history.push("/"))
+                } else {
+                  r.json()
+                  .then(err => alert(err))
+                }
+              })
+            }
+
           function handleLogout () {
                 fetch("/logout", {
                   method: "DELETE",
@@ -121,7 +138,7 @@ const UserProvider = ({children}) => {
                 }
 
   return (
-    <UserContext.Provider value={{user, setUser, handleLogin, handleLogout, handleSignup, handleUpdate, handleDelete}}>
+    <UserContext.Provider value={{user, setUser, handleLogin, handleLogout, handleSignup, handleUpdate, handleDeleteUser}}>
         {children} 
     </UserContext.Provider>
   )

@@ -25,6 +25,7 @@ function NavBar() {
                 <div className="nav-wrapper"><Link to="/gallery">Gallery</Link></div>
                 <div className="nav-wrapper"><Link to="/About">About</Link></div>
                 <div className="nav-wrapper"><Link to="/update">Account Updates</Link></div>
+                {/* <div className="nav-wrapper"><Link to="/delete-profile">Delete Account</Link></div> */}
                 {/* <div className="nav-wrapper"><Link to="/contact">Contact</Link></div> */}
                 <button onClick={handleLogout}>Logout</button>
             </>)}

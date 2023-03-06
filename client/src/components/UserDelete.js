@@ -49,7 +49,7 @@
 //             >
 //               <div>
 //                 <Typography level="h4" component="h1">
-//                   <b>User Settings</b>
+//                   <b>Delete Account</b>
 //                 </Typography>
 //                 {/* <Typography level="body2">Sign in to continue.</Typography> */}
 //               </div>
@@ -93,13 +93,13 @@
     
 //                 <Button type="submit" sx={{ mt: 1 /* margin top */ }}>Delete Account</Button>
 //                 </form>
-//               {/* <Typography
+//               <Typography
 //                 endDecorator={<Link onClick={() => setToggleAuth(currentVal => !currentVal)}>Sign up</Link>}
 //                 fontSize="sm"
 //                 sx={{ alignSelf: 'center' }}
 //               >
-//                 Don&apos;t have an account?
-//               </Typography> */}
+//                 {/* Don&apos;t have an account? */}
+//               </Typography>
 //             </Sheet>
 //           </main>
 //         </CssVarsProvider>
