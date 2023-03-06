@@ -49,12 +49,12 @@ function UserUpdate({setToggleAuth}) {
             >
               <div>
                 <Typography level="h4" component="h1">
-                  <b>User Settings</b>
+                  <b>Update Account</b>
                 </Typography>
                 {/* <Typography level="body2">Sign in to continue.</Typography> */}
               </div>
               <form onSubmit={(e) => handleUpdate(e, userUpdateData)}>
-              <FormControl>
+              {/* <FormControl>
                     <FormLabel>Name</FormLabel>
                     <Input
                     // html input attribute
@@ -63,9 +63,9 @@ function UserUpdate({setToggleAuth}) {
                     placeholder="johndoe"
                     onChange={handleChange}
                     // value={user.email}
-                    value={userUpdateData.name}
+                    value={userUpdateData.name} required
                     />
-                </FormControl>
+                </FormControl> */}
                 <FormControl>
                     <FormLabel>Email</FormLabel>
                     <Input
@@ -75,7 +75,7 @@ function UserUpdate({setToggleAuth}) {
                     placeholder="johndoe@email.com"
                     onChange={handleChange}
                     // value={user.email}
-                    value={userUpdateData.email}
+                    value={userUpdateData.email} required
                     />
                 </FormControl>
                 <FormControl>
@@ -87,11 +87,12 @@ function UserUpdate({setToggleAuth}) {
                     placeholder="password"
                     onChange={handleChange}
                     // value={user.password}
-                    value={userUpdateData.password}
+                    value={userUpdateData.password} required
                     />
                 </FormControl>
     
-                <Button type="submit" sx={{ mt: 1 /* margin top */ }}>Update Account</Button>
+                <Button type="submit" sx={{ mt: 1 /* margin top */ }}>Update Account </Button>
+                <Button type="submit" sx={{ mt: 1 /* margin top */ }}>Delete Account</Button>
                 </form>
               {/* <Typography
                 endDecorator={<Link onClick={() => setToggleAuth(currentVal => !currentVal)}>Sign up</Link>}

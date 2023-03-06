@@ -14,6 +14,7 @@ function BookingsForm() {
         name: "",
         phone_number: "",
         email: "",
+        location: "",
         datetime: "",
         event_id: ''
         // user_id: ,
@@ -27,6 +28,7 @@ function BookingsForm() {
         e.preventDefault();
         const newF = {...newForm, event_id: newForm.event_id}
         console.log(newF);
+        debugger
         fetch("/bookings", {
             method: "POST",
             headers: {
@@ -54,6 +56,7 @@ function BookingsForm() {
                 {/* <input value={newForm.price} onChange={handleChange} type="number" name="price" placeholder="Price" /> <br /> */}
                 <input value={newForm.email} onChange={handleChange} type="text" name="email" placeholder="Email" required/> <br />
                 <input value={newForm.event_id} onChange={handleChange} type="text" name="event_id" placeholder="Event Information" required/> <br />
+                <input value={newForm.location} onChange={handleChange} type="text" name="location" placeholder="Location" required/> <br />
                 <input value={newForm.datetime} onChange={handleChange} type="datetime-local" name="datetime" placeholder="Date/Time" required/> <br />
                 {/* {eventList()} */}
                 <input type="submit" value="Add Booking"/> <br />

@@ -33,7 +33,7 @@ const UserProvider = ({children}) => {
             }).then((r) => {
             //   setIsLoading(false);
               if (r.status === 200) {
-                alert("logged in successfully")
+                alert("Logged in successfully")
                 r.json().then((user) => setUser(user))
                 .then(() => history.push("/"))
               } else {
@@ -84,6 +84,27 @@ const UserProvider = ({children}) => {
             });
           }
 
+          function handleDelete(e, userDeleteData) {
+            e.preventDefault();
+            // setIsLoading(true);
+            fetch("/delete-profile", {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(userDeleteData),
+            }).then((r) => {
+            //   setIsLoading(false);
+              if (r.status === 204) {
+                alert("Account deleted successfully")
+                r.json().then(userDelete => setUser(userDelete))
+                .then(() => history.push("/"))
+              } else {
+                r.json().then((err) => setErrors(err.errors));
+              }
+            });
+          }
+
           function handleLogout () {
                 fetch("/logout", {
                   method: "DELETE",
@@ -100,7 +121,7 @@ const UserProvider = ({children}) => {
                 }
 
   return (
-    <UserContext.Provider value={{user, setUser, handleLogin, handleLogout, handleSignup, handleUpdate}}>
+    <UserContext.Provider value={{user, setUser, handleLogin, handleLogout, handleSignup, handleUpdate, handleDelete}}>
         {children} 
     </UserContext.Provider>
   )

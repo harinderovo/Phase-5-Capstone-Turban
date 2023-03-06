@@ -14,6 +14,7 @@ import Gallery from './components/Gallery';
 import About from './components/About';
 import HomePage from './components/HomePage';
 import UserUpdate from './components/UserUpdate';
+import UserDelete from './components/UserDelete'
 import { UserContext } from './context/UserContext';
 
 const App = () =>  {
@@ -57,6 +58,10 @@ const App = () =>  {
           <Route exact path="/update">
             <UserUpdate />
           </Route>
+
+          {/* <Route exact path="/delete">
+            <UserDelete />
+          </Route> */}
 
           <Route exact path="/">
             <HomePage />
