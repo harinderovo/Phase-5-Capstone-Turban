@@ -15,6 +15,8 @@ import About from './components/About';
 import HomePage from './components/HomePage';
 import UserUpdate from './components/UserUpdate';
 import UserDelete from './components/UserDelete'
+import ProductsList from './components/ProductsList';
+import Cart from './components/Cart';
 import { UserContext } from './context/UserContext';
 
 const App = () =>  {
@@ -49,6 +51,10 @@ const App = () =>  {
 
           <Route exact path="/about">
             <About />
+          </Route>
+
+          <Route exact path="/products">
+            <ProductsList />
           </Route>
 
           <Route exact path="/gallery">

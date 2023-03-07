@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
 
     def update
         find_booking
-        @booking.update!(location: params[:location])
+        @booking.update!(bookings_params)
         render json: @booking, status: :accepted
       end
 

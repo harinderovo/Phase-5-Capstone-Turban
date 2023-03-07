@@ -40,7 +40,7 @@ function Booking({API, booking, setBookings, name, phone_number, email, password
                     method: 'DELETE',
                 })
                 .then(response => {
-                    if (response.ok) {
+                    if (response.status === 204) {
                         setUser(user => {
                             return {...user, bookings: user.bookings.filter(b => b.id !== booking.id)}
                         });

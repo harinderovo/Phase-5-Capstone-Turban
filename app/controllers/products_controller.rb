@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
     def index
-        render json: @user.products, status: :ok
+        render json: Product.all, status: :ok
     end
 
     def show 
