@@ -37,6 +37,7 @@ const UserProvider = ({children}) => {
                 r.json().then((user) => setUser(user))
                 .then(() => history.push("/"))
             } else {
+                alert("Invalid email or password")
                 r.json().then((err) => setErrors(err.errors));
             }
         });
@@ -58,6 +59,7 @@ const UserProvider = ({children}) => {
                 r.json().then(userObj => setUser(userObj))
                 .then(() => history.push("/"))
             } else {
+                alert("Passwords don't match")
                 r.json().then((err) => setErrors(err.errors));
             }
         });
@@ -84,26 +86,26 @@ const UserProvider = ({children}) => {
         });
     }
     
-    function handleDelete(e, userDeleteData) {
-        e.preventDefault();
-        // setIsLoading(true);
-        fetch("/delete-profile", {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userDeleteData),
-        }).then((r) => {
-            //   setIsLoading(false);
-            if (r.status === 204) {
-                alert("Account deleted successfully")
-                r.json().then(userDelete => setUser(userDelete))
-                .then(() => history.push("/"))
-            } else {
-                r.json().then((err) => setErrors(err.errors));
-            }
-        });
-    }
+    // function handleDelete(e, userDeleteData) {
+    //     e.preventDefault();
+    //     // setIsLoading(true);
+    //     fetch("/delete-profile", {
+    //         method: "DELETE",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(userDeleteData),
+    //     }).then((r) => {
+    //         //   setIsLoading(false);
+    //         if (r.status === 204) {
+    //             alert("Account deleted successfully")
+    //             r.json().then(userDelete => setUser(userDelete))
+    //             .then(() => history.push("/"))
+    //         } else {
+    //             r.json().then((err) => setErrors(err.errors));
+    //         }
+    //     });
+    // }
     
       function handleDeleteUser () {
         fetch(`/users/${user.id}`, {
@@ -112,7 +114,7 @@ const UserProvider = ({children}) => {
           .then((r) => {
             if (r.status === 204) {
               setUser(null)
-              alert("You have Successfully been deleted")
+              alert("You have successfully been deleted")
               r.json().then(userUpdate => setUser(userUpdate))
             .then(() => history.push("/"))
             } else {
