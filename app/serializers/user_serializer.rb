@@ -3,7 +3,7 @@ class UserSerializer < ActiveModel::Serializer
   has_many :bookings
   has_many :purchases
 
-  def booking_requests
-    self.object.email == "harmiglany@yahoo.com" ? Booking.where(status: "Pending") : nil
+  def bookings_requests
+    self.object.email == "harinder@gmail.com" ? Booking.where(status: "Pending") : nil
   end
 end

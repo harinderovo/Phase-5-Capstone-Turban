@@ -10,8 +10,8 @@ function EditBookingForm({id, name, phone_number, location, datetime, event_id, 
     const {setErrors} = useContext(ErrorContext)
 
     const [editNewForm, setEditNewForm] = useState({
-        name: name,
-        phone_number: phone_number,
+        // name: name,
+        // phone_number: phone_number,
         location: location,
         datetime: datetime,
         event_id: event_id
@@ -48,8 +48,8 @@ function EditBookingForm({id, name, phone_number, location, datetime, event_id, 
         <form onSubmit={handleSubmit} className='ui form' autoComplete="off">
             <div className='inline fields'>
                 <input value={editNewForm.event_id} onChange={handleChange} type="text" name="event_id" placeholder="Event Information" required/> <br />
-                <input value={editNewForm.name} onChange={handleChange} type="text" name="name" placeholder="Name" required/> <br />
-                <input value={editNewForm.phone_number} onChange={handleChange} type="text" name="phone_number" placeholder="Phone Number" required/> <br />
+                {/* <input value={editNewForm.name} onChange={handleChange} type="text" name="name" placeholder="Name" required/> <br />
+                <input value={editNewForm.phone_number} onChange={handleChange} type="text" name="phone_number" placeholder="Phone Number" required/> <br /> */}
                 <input value={editNewForm.location} onChange={handleChange} type="text" name="location" placeholder="Location" required/> <br />
                 <input value={editNewForm.datetime} onChange={handleChange} type="datetime-local" name="datetime" placeholder="Date/Time" required/> <br />
                 {/* {eventList()} */}

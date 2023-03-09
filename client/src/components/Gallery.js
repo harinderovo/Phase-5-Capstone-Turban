@@ -15,11 +15,11 @@ function Gallery() {
     
     return (
         <div>
-            Gallery
+            <h4>We make sure your turban is perfect for your big day!</h4>
             <ul>
                 {renderImages && renderImages.map(image => (
                     <li key={image.id} style={{listStyle: "none"}}>
-                        <img style={{width: "2em", height: "2em"}}src={image.url} alt={image.title} />
+                        <img style={{width: "16em", height: "22em"}}src={image.url} alt={image.title} />
                     </li>
                 ))}
             </ul>

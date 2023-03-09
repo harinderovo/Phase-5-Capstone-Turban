@@ -16,7 +16,7 @@ function UserUpdate({setToggleAuth}) {
     const history = useHistory()
     const [userUpdateData, setUserUpdateData] = useState({
         name: "",
-        email: "",
+        email: user.email,
         password: ""
     })
     const [email, setEmail] = useState("")

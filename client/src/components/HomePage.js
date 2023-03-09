@@ -54,32 +54,60 @@ function HomePage() {
 //     })
 // }
 
-  return (
+return (
     <div>
       <h1>Welcome, {user.name}</h1>
       <h3>Upcoming Bookings are Below</h3>
-      { !user.myeemail ? user.bookings.map((booking) => (
+      {user.bookings && user.bookings.map((booking) => (
         <div key={booking.id}>
           <span className='card-detail'>Date/Time: {booking.datetime} </span> <br />
           <span className='card-detail'>Location: {booking.location} </span> <br />
           <span className='card-detail'>Price: {booking.price} </span> <br />
           <span className='card-detail'>Status: {booking.status} </span> <br />
           <BookingControl booking={booking} setUser={setUser}/>
-          {/* { showForm ? null : <button onClick={() => setShowForm(current => !current)}>Edit</button>}
-          <button onClick={() => handleDelete(booking.id)}>Delete</button>
-          { showForm ? <EditBookingForm {...booking} /> : null} */}
           <hr />
         </div>
-      )): user.bookings_requests.map(booking => {
-        <div key={booking.id}>
-          <span className='card-detail'>Date/Time: {booking.datetime} </span> <br />
-          <span className='card-detail'>Location: {booking.location} </span> <br />
-          <span className='card-detail'>Price: {booking.price} </span> <br />
-          <span className='card-detail'>Status: {booking.status} </span> <br />
+      ))}
+      {user.bookings_requests && user.bookings_requests.map(booking => {
+        return (
+          <div key={booking.id}>
+            <span className='card-detail'>Date/Time: {booking.datetime} </span> <br />
+            <span className='card-detail'>Location: {booking.location} </span> <br />
+            <span className='card-detail'>Price: {booking.price} </span> <br />
+            <span className='card-detail'>Status: {booking.status} </span> <br />
           </div>
-      })} 
+        );
+      })}
     </div>
   );
 }
+
+//   return (
+//     <div>
+//       <h1>Welcome, {user.name}</h1>
+//       <h3>Upcoming Bookings are Below</h3>
+//       { !user.email[8] ? user.bookings.map((booking) => (
+//         <div key={booking.id}>
+//           <span className='card-detail'>Date/Time: {booking.datetime} </span> <br />
+//           <span className='card-detail'>Location: {booking.location} </span> <br />
+//           <span className='card-detail'>Price: {booking.price} </span> <br />
+//           <span className='card-detail'>Status: {booking.status} </span> <br />
+//           <BookingControl booking={booking} setUser={setUser}/>
+//           {/* { showForm ? null : <button onClick={() => setShowForm(current => !current)}>Edit</button>}
+//           <button onClick={() => handleDelete(booking.id)}>Delete</button>
+//           { showForm ? <EditBookingForm {...booking} /> : null} */}
+//           <hr />
+//         </div>
+//       )): user.bookings_requests.map(booking => {
+//         <div key={booking.id}>
+//           <span className='card-detail'>Date/Time: {booking.datetime} </span> <br />
+//           <span className='card-detail'>Location: {booking.location} </span> <br />
+//           <span className='card-detail'>Price: {booking.price} </span> <br />
+//           <span className='card-detail'>Status: {booking.status} </span> <br />
+//           </div>
+//       })} 
+//     </div>
+//   );
+// }
 
 export default HomePage;

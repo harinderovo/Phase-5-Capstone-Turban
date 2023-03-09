@@ -30,6 +30,7 @@ User.create(
     { name: 'Adrian Barba', email: 'abarba123@gmail.com', password: 'adbarb765', phone_number: '9098137041' },
     { name: 'Robert Lee', email: 'golfislife@gmail.com', password: 'tigerwoods14', phone_number: '7189021602' },
     { name: 'John Josef', email: 'jojo@gmail.com', password: 'tobifobi', phone_number: '9516663401' },
+    { name: 'Harinder Singh', email: 'harinder@gmail.com', password: 'harinder123', phone_number: '9512334545' },
   ],
 )
 

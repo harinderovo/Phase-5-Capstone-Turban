@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/current_user", to: "users#show"
   patch "/update-profile", to: "users#update"
   delete "/bookings/:id", to: "bookings#destroy"
+  delete "/users/:id", to: "users#destroy"
   # destroy "/delete-profile", to: "users#delete"
   # get "/users", to: "users#show"
   # post "/signup", to: "users#create"
