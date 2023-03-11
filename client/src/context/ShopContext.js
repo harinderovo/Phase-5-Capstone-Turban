@@ -44,7 +44,7 @@ function ShopContextProvider({children}) {
     const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, products};
     
     return (
-        <ShopContext.Provider value={{cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, products}}>{children}</ShopContext.Provider>
+        <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
         )
     }
     
