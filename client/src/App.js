@@ -18,6 +18,8 @@ import UserDelete from './components/UserDelete'
 import ProductsList from './components/ProductsList';
 import Cart from './components/Cart';
 import { UserContext } from './context/UserContext';
+import {ShopContextProvider} from './context/ShopContext';
+
 
 const App = () =>  {
 
@@ -32,6 +34,7 @@ const App = () =>  {
 
   return (
     <div className="App">
+      {/* <ShopContextProvider> */}
       <NavBar />
       <Switch>
         { user ? (
@@ -55,6 +58,10 @@ const App = () =>  {
 
           <Route exact path="/products">
             <ProductsList />
+          </Route>
+
+          <Route exact path="/cart">
+            <Cart />
           </Route>
 
           <Route exact path="/gallery">
@@ -95,6 +102,7 @@ const App = () =>  {
           </Route> </>
         )}
       </Switch>
+      {/* </ShopContextProvider> */}
     </div>
   );
 }

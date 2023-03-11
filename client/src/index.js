@@ -6,18 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { ErrorProvider } from './context/ErrorContext';
 import { UserProvider } from './context/UserContext';
+import { ShopContextProvider } from './context/ShopContext'
 
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 
 ReactDOM.render(
+<ShopContextProvider>
   <ErrorProvider>
     <BrowserRouter>
       <UserProvider>
-        <App />
+          <App />
       </UserProvider>
     </BrowserRouter>
-  </ErrorProvider>,
+  </ErrorProvider>
+</ShopContextProvider>,
   document.getElementById("root")
 );
 

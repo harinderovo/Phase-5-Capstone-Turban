@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Product from './Product'
+import {ShopContext} from '../context/ShopContext';
 
 function ProductsList() {
     
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useState([]);
+    // const [cart, setCart] = useState([]);
+    const { addToCart, cartItems } = useContext(ShopContext)
+    // const cartItemAmount = cartItems[product.id]
     
     useEffect(() => {
         fetch("/products")
@@ -13,24 +16,30 @@ function ProductsList() {
     }, [])
     // console.log(products)
 
-    const addToCart = (product) => {
-        setCart([...cart, product]);
-    };
+    // const addToCart = (product) => {
+    //     setCart([...cart, product]);
+    // };
     
     const mappedProducts = products.map(product => (
-        <div key={product.id}>
-            <h2>{product.name}</h2>
-            <h4>{product.price}</h4>
-            <img style={{width: "18em", height: "22em"}}src={product.image_url} />
-            <Product product={product} />
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
-        </div>
+        // <div className="products" 
+        //     key={product.id}>
+        //     <img style={{width: "18em", height: "22em"}}src={product.image_url} />
+        //     <div className="description">
+        //         <p>
+        //             <b>{product.name}</b>
+        //         </p>
+        //         <p>${product.price}</p>
+        //     </div>
+            <Product key={product.id} product={product} />
     ));
     return (
         <div className="ProductsList">
-        <ul className="Products">
-        {mappedProducts} 
-        </ul>
+            <div className="shopTitle">
+                <h1>Turban Shop</h1>
+            </div>
+            <div className="Products">
+                {mappedProducts} 
+            </div>
         </div>
         )
     }
