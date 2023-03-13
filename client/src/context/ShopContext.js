@@ -5,11 +5,12 @@ const ShopContext = createContext(null);
 
 function ShopContextProvider({children}) {
     const [products, setProducts] = useState([])
+    const [cart, setCart] = useState([]);
     
     
     const getDefaultCart = (products) => {
         let cart = {}
-        for (let i = 1; i < products.length; i++) {
+        for (let i = 1; i < products.length + 1; i++) {
             // cart[1] = 0
             cart[products[i].id] = 0
         }
@@ -20,28 +21,35 @@ function ShopContextProvider({children}) {
 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
-        for (const item in cartItems) {
-            if (cartItems[item] > 0 ) {
+        for (const item in cart) {
+            if (cart[item] > 0 ) {
                 let itemInfo = products.find((product) => product.id === Number(item));
-                totalAmount += cartItems[item] * itemInfo.price 
+                totalAmount += cart[item] * itemInfo.price 
             }
         }
         return totalAmount;
     }
 
-    const addToCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1}))
+    const addToCart = (item) => {
+        setCart((prev) => {
+            const itemFound = prev.find(cartItem => item.id === cartItem.id)
+            if (itemFound) {
+                return prev.map(cartItem => cartItem.id === item.id ? {...cartItem, quantity: cartItem.quantity + item.quantity} : cartItem)
+            } else {
+                return [...prev, item]
+            }
+        })
     };
 
-    const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1}))
-    };
+    // const subtractFromCart = (item) => {
+    //     setCart((prev) => {...prev, [itemId]: prev[item] - 1})
+    // };
 
-    const updateCartItemCount = (newAmount, itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: newAmount}))
-    }
+    // const updateCartItemCount = (newAmount, item) => {
+    //     setCart((prev) => ({...prev, [itemId]: newAmount}))
+    // }
 
-    const contextValue = {cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, products};
+    const contextValue = {cart, addToCart, getTotalCartAmount, products};
     
     return (
         <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>

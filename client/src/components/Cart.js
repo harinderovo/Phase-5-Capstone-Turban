@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 
 function Cart() {
-    const { cartItems, getTotalCartAmount, products } = useContext(ShopContext)
+    const { cart, getTotalCartAmount, products } = useContext(ShopContext)
     const totalAmount = getTotalCartAmount()
 
     const history = useHistory();
@@ -17,10 +17,10 @@ function Cart() {
             <h1>Your Cart Items</h1>
         </div>
         <div className="cartItems">
-            {products.map((product) => {
-                if (cartItems[products.id] !== 0) {
+            {cart.map((product) => {
+                // if (cartItems[products.id] !== 0) {
                     return <CartItem data={product}/> 
-                }
+                // }
             })}
         </div>
         {totalAmount > 0 ? 

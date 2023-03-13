@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :purchases, only: [:index, :show, :destroy, :update]
+  resources :purchases, only: [:index, :show, :create]
   resources :products, only: [:index, :show]
   resources :bookings
   resources :events, only: [:index, :show]
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   patch "/update-profile", to: "users#update"
   delete "/bookings/:id", to: "bookings#destroy"
   delete "/users/:id", to: "users#destroy"
+  post "/products", to: "purchases#create"
   # destroy "/delete-profile", to: "users#delete"
   # get "/users", to: "users#show"
   # post "/signup", to: "users#create"
