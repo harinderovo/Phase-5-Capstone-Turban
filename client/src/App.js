@@ -17,6 +17,7 @@ import UserUpdate from './components/UserUpdate';
 import UserDelete from './components/UserDelete'
 import ProductsList from './components/ProductsList';
 import Cart from './components/Cart';
+import Product from './components/Product';
 import { UserContext } from './context/UserContext';
 import {ShopContextProvider} from './context/ShopContext';
 
@@ -58,6 +59,10 @@ const App = () =>  {
 
           <Route exact path="/products">
             <ProductsList />
+          </Route>
+
+          <Route exact path="/products/:id">
+            <Product />
           </Route>
 
           <Route exact path="/cart">

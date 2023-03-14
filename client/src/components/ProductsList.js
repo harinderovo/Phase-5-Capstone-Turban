@@ -41,8 +41,8 @@ function ProductsList() {
         //         </p>
         //         <p>${product.price}</p>
         //     </div>
-            <Product product={product} />
-            // <button className="add-to-cart-button" onClick={(e) => handleSubmit(e, product.id)}>Add To Cart {cartItems[product.id] > 0 && <> ({cartItems[product.id]})</>}</button>
+            <Product key={product.id} product={product} />
+            /* <button className="add-to-cart-button" onClick={(e) => handleSubmit(e, product.id)}>Add To Cart {cartItems[product.id] > 0 && <> ({cartItems[product.id]})</>}</button> */
         // </div>
     ));
     return (

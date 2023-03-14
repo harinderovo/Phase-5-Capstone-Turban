@@ -119,6 +119,81 @@
   cursor: pointer;
 }
 
+.gallery {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-images {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-booking-button {
+  background-color: transparent;
+  border: 2px solid rgb(19, 19, 19);
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+.edit-booking-button:hover {
+  background-color: rgb(19, 19, 19);
+  color: white;
+  cursor: pointer; 
+}
+
+.delete-booking-button {
+  background-color: transparent;
+  border: 2px solid rgb(19, 19, 19);
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+.delete-booking-button:hover {
+  background-color: rgb(19, 19, 19);
+  color: white;
+  cursor: pointer; 
+}
+
+.cartItem {
+
+}
+
+.cartItem .description {
+  
+}
+
+/* .App {
+  background-image: url("assets/turban wallpaper 4 .webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+/* body {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url('assets/turban wallpaper 4 .webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
 
 
 

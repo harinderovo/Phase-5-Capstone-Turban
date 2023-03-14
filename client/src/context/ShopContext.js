@@ -41,15 +41,22 @@ function ShopContextProvider({children}) {
         })
     };
 
-    // const subtractFromCart = (item) => {
-    //     setCart((prev) => {...prev, [itemId]: prev[item] - 1})
+    // const removeFromCart = (item) => {
+    //     setCart((prev) => {
+    //         const itemFound = prev.find(cartItem => item.id === cartItem.id)
+    //         if (itemFound) {
+    //             return prev.map(cartItem => cartItem.id === item.id ? {...cartItem, quantity: cartItem.quantity - item.quantity} : cartItem)
+    //         } else {
+    //             return [...prev, item]
+    //         }
+    //     })
     // };
 
     // const updateCartItemCount = (newAmount, item) => {
     //     setCart((prev) => ({...prev, [itemId]: newAmount}))
     // }
 
-    const contextValue = {cart, addToCart, getTotalCartAmount, products};
+    const contextValue = {cart, addToCart, getTotalCartAmount, products, setCart};
     
     return (
         <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>

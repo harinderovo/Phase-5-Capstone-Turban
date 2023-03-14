@@ -14,9 +14,9 @@ function Gallery() {
     console.log(renderImages)
     
     return (
-        <div>
-            <h4>We make sure your turban is perfect for your big day!</h4>
-            <ul>
+        <div className="gallery">
+            <h2>We make sure your turban is perfect for your big day!</h2>
+            <ul className="gallery-images">
                 {renderImages && renderImages.map(image => (
                     <li key={image.id} style={{listStyle: "none"}}>
                         <img style={{width: "16em", height: "22em"}}src={image.url} alt={image.title} />

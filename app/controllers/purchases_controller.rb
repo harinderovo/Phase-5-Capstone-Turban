@@ -9,9 +9,12 @@ class PurchasesController < ApplicationController
     end
 
     def create
-        product = Product.find(purchase_params[:product_id])
-        new_purchase = @user.purchases.create!(purchase_params.merge(product: product))
-        render json: new_purchase, status: :created
+        params[:cart].each do |p|
+            product = Product.find(p[:id])
+            @user.purchases.create!(quantity: p[:quantity], product_id: product.id)
+        end
+        byebug
+        render json: @user.purchases, status: :created
     end
 
     # def create
@@ -20,17 +23,6 @@ class PurchasesController < ApplicationController
     #     render json: user, status: :created
     # end
 
-    # def update
-    #     find_purchase
-    #     @purchase.update!(location: params[:location])
-    #     render json: @purchase, status: :accepted
-    #   end
-
-    # def destroy
-    #     purchase = Purchase.find(params[:id])
-    #     purchase.destroy
-    #     head :no_content
-    # end
 
     private
 
