@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
+import { ShopContext } from '../context/ShopContext';
 import { UserContext } from '../context/UserContext';
 import BookingControl from './BookingControl';
 
@@ -7,6 +8,16 @@ function HomePage() {
   const location = useLocation();
   const { id } = useParams();
   const {handleUpdate, user, setUser} = useContext(UserContext)
+  const {product} = useContext(ShopContext)
+
+
+//   useEffect(() => {
+//     fetch("/purchases")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setUser(data);
+//       });
+//   }, []);
 
 //   const handleEditBooking = (id) => {
 //     const newDateTime = window.prompt('Enter a new date/time for the booking:');
@@ -68,6 +79,7 @@ return (
           <hr />
         </div>
       ))}
+      <h3>Pending Bookings</h3>
       {user.bookings_requests && user.bookings_requests.map(booking => {
         return (
           <div key={booking.id}>
@@ -78,6 +90,16 @@ return (
           </div>
         );
       })}
+      <h3>Purchases are Below</h3>
+      {user.purchases && user.purchases.map((purchase) => (
+          <div key={purchase.id}>
+            <span className="card-detail">Name: {purchase.product.name}</span> <br />
+            <span className="card-detail">Quantity: {purchase.quantity}</span> <br />
+            <span className="card-detail">Price: {purchase.product.price}</span> <br />
+            <span className="card-detail">{purchase.time_stamp_format}</span> <br />
+            <hr />
+        </div>
+      ))}
     </div>
   );
 }
